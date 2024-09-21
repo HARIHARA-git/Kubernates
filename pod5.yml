@@ -1,0 +1,15 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: levelspod1
+  labels:                     #Specifies the level details under it
+     days: fri                # <Keyname1> : <Value>
+     class: kubernetes        # <Keyname2> : <Value>
+
+
+spec:
+  containers:
+    - name: resource
+      image: centos
+      command: ["/bin/bash", "-c", "while true; do echo Hello-Rahul ; sleep 5; done"]
+

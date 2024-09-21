@@ -1,0 +1,22 @@
+kind: ReplicationController                       #object type
+apiVersion: v1
+metadata:
+  name: myreplicationcontroller
+
+spec:
+  replicas: 2                  #desired number of pods
+  selector:                    #tells controller, which pods to watch/belong to this Replication Controller
+    myname: hari               #this must match the labels
+
+
+  template:                    #template element defines a template to lunch a new pod
+
+    metadata: 
+        labels:                #selector values need to be match the labels values given in the pod template
+          myname: hari
+    spec:
+      containers:
+        - name: c00
+          image: ubuntu
+          command: ["/bin/bash", "-c" , "while true ; do echo Hello-Rahul ; sleep 5 ;done"]
+
